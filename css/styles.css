@@ -1,0 +1,53 @@
+body {
+  background-color: rgb(240, 240, 240);
+  font-family:
+    "Proza Libre",
+    sans-serif;
+}
+
+.navi-bar {
+  background-color: rgb(86, 43, 129);
+  color: white;
+  font-family:
+    "Open Sans",
+    sans-serif;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.placeholder {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#user-notes,
+#user-photo,
+#user-title {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: rgb(182, 182, 182);
+}
+
+.text-right {
+  text-align: right;
+}
+
+.purple-button {
+  background-color: rgb(86, 43, 128);
+  color: white;
+  font-family:
+    "Open Sans",
+    sans-serif;
+  padding: 10px 15px;
+  border: unset;
+  border-radius: 6px;
+  font-size: 15px;
+}
