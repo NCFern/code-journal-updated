@@ -52,6 +52,19 @@ textarea {
   font-size: 15px;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  padding-bottom: 20px;
+}
+
 img {
   width: 95%;
+}
+
+h2 {
+  margin-top: 0;
 }
