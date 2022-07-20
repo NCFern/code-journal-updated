@@ -15,6 +15,10 @@ body {
   font-size: 20px;
 }
 
+.entries-header {
+  padding-left: 20px;
+}
+
 .placeholder {
   width: 100%;
   margin-bottom: 20px;
