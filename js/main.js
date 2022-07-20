@@ -72,4 +72,5 @@ function loadDOMTree(event) {
     var $appendEntireEntry = renderEntry(data.entries[i]);
     $entryFull.appendChild($appendEntireEntry);
   }
+
 }
