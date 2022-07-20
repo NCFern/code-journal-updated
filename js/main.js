@@ -3,7 +3,11 @@
 var $photo = document.querySelector('#user-photo');
 var $showImage = document.querySelector('.placeholder');
 var $form = document.querySelector('#new-form');
-var $entryFull = document.querySelector('.ul');
+var $entryFull = document.querySelector('.entry-list');
+var $viewList = document.querySelectorAll('.view');
+var $newButton = document.querySelector('.purple-new-button');
+var $entriesTab = document.querySelector('.entries-header');
+var $noEntries = document.querySelector('.no-entries');
 
 $photo.addEventListener('input', showPicture);
 
@@ -32,6 +36,14 @@ function submitForm(event) {
   data.nextEntryId++;
   $form.reset();
   $showImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $entryFull.prepend(renderEntry(data.entries[0]));
+
+  if (data.entries.length !== 0) {
+    $noEntries.classList.add('hidden');
+  }
+
+  clickEntry();
+
 }
 
 function renderEntry(entry) {
@@ -72,5 +84,27 @@ function loadDOMTree(event) {
     var $appendEntireEntry = renderEntry(data.entries[i]);
     $entryFull.appendChild($appendEntireEntry);
   }
+}
 
+$entriesTab.addEventListener('click', clickEntry);
+$newButton.addEventListener('click', clickNew);
+
+function clickEntry(event) {
+  for (var i = 0; i < $viewList.length; i++) {
+    if ($viewList[i].getAttribute('data-view') === 'entry-form') {
+      $viewList[i].className = 'view hidden';
+    } else if ($viewList[i].getAttribute('data-view') !== 'entry-form') {
+      $viewList[i].className = 'view';
+    }
+  }
+}
+
+function clickNew(event) {
+  for (var i = 0; i < $viewList.length; i++) {
+    if ($viewList[i].getAttribute('data-view') === 'entry-form') {
+      $viewList[i].className = 'view';
+    } else if ($viewList[i].getAttribute('data-view') !== 'entry-form') {
+      $viewList[i].className = 'view hidden';
+    }
+  }
 }
