@@ -15,6 +15,10 @@ body {
   font-size: 20px;
 }
 
+.entries-header {
+  padding-left: 20px;
+}
+
 .placeholder {
   width: 100%;
   margin-bottom: 20px;
@@ -40,7 +44,7 @@ textarea {
   text-align: right;
 }
 
-.purple-button {
+.purple-save-button {
   background-color: rgb(86, 43, 128);
   color: white;
   font-family:
@@ -50,4 +54,46 @@ textarea {
   border: unset;
   border-radius: 6px;
   font-size: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  padding-bottom: 20px;
+}
+
+img {
+  width: 95%;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.purple-new-button {
+  background-color: rgb(86, 43, 128);
+  color: white;
+  font-family:
+    "Open Sans",
+    sans-serif;
+  padding: 10px 15px;
+  border: unset;
+  border-radius: 6px;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.new-button-padding {
+  padding-top: 35px;
+}
+
+.no-entries {
+  text-align: center;
 }
