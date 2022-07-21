@@ -48,6 +48,7 @@ function submitForm(event) {
 
 function renderEntry(entry) {
   var $entryList = document.createElement('li');
+  $entryList.setAttribute('data-entry-id', entry.entryId);
 
   var $entryRow = document.createElement('div');
   $entryRow.setAttribute('class', 'row');
@@ -61,17 +62,24 @@ function renderEntry(entry) {
   var $entry2Column = document.createElement('div');
   $entry2Column.setAttribute('class', 'column-half');
 
+  var $entryTitleRow = document.createElement('div');
+  $entryTitleRow.setAttribute('class', 'row space-between');
+
   var $entryTitle = document.createElement('h2');
   $entryTitle.textContent = entry.title;
 
   var $entryNotes = document.createElement('p');
   $entryNotes.textContent = entry.notes;
 
+  var $entryEditor = document.createElement('i');
+  $entryEditor.setAttribute('class', 'fa-solid fa-pencil');
+
   $entryList.appendChild($entryRow);
   $entryRow.appendChild($entryColumn);
   $entryColumn.appendChild($entryImage);
   $entryRow.appendChild($entry2Column);
   $entry2Column.appendChild($entryTitle);
+  $entry2Column.appendChild($entryEditor);
   $entry2Column.appendChild($entryNotes);
 
   return $entryList;
