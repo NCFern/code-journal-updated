@@ -78,8 +78,9 @@ function renderEntry(entry) {
   $entryRow.appendChild($entryColumn);
   $entryColumn.appendChild($entryImage);
   $entryRow.appendChild($entry2Column);
-  $entry2Column.appendChild($entryTitle);
-  $entry2Column.appendChild($entryEditor);
+  $entry2Column.appendChild($entryTitleRow);
+  $entryTitleRow.appendChild($entryTitle);
+  $entryTitleRow.appendChild($entryEditor);
   $entry2Column.appendChild($entryNotes);
 
   return $entryList;
