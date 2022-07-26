@@ -8,8 +8,10 @@ var $viewList = document.querySelectorAll('.view');
 var $newButton = document.querySelector('.purple-new-button');
 var $entriesTab = document.querySelector('.entries-header');
 var $noEntries = document.querySelector('.no-entries');
-// var $targetUl = document.querySelector('ul');
-// var $changeTitle = document.querySelector('.new-entry-title');
+var $targetUl = document.querySelector('ul');
+var $icon = document.querySelectorAll('i');
+var $list = document.querySelectorAll('li');
+var $changeTitle = document.querySelector('.new-entry-title');
 
 $photo.addEventListener('input', showPicture);
 
@@ -120,23 +122,16 @@ function clickNew(event) {
   }
 }
 
-// $targetUl.addEventListener('click', editFeature);
+$targetUl.addEventListener('click', editFeature);
 
-// function editFeature({ target }) {
-//   if (event.target.tagName === 'I') {
-//     clickEntry('entry-form');
-//   } else {
-//     return;
-//   }
-//   var $editIcon = target.closest('li');
-//   var $currentEdit = $editIcon.getAttribute('data-entry-id');
-//   data.editing = $currentEdit;
-//   for (var i = 0; i < data.entries.length; i++) {
-//     if ($currentEdit === data.entries[i].entryId.toString()) {
-//       data.editing = data.entries[i];
-//       break;
-//     }
-//   }
-//   $changeTitle.textContent = 'Edit Entry';
+function editFeature(event) {
+  for (var i = 0; i < $list.length; i++) {
+    if ($list[i].getAttribute('data-entry-id') === (data.entries[i].entryId).toString() &&
+    event.target.getAttribute('data-entry-id') === $icon[i].getAttribute('data-entry-id')) {
+      data.editing = data.entries[i];
+      clickNew();
+      $changeTitle.innerHTML = 'Edit Entry';
+    }
+  }
 
-// }
+}
