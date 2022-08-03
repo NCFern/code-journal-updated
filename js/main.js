@@ -8,10 +8,15 @@ var $viewList = document.querySelectorAll('.view');
 var $newButton = document.querySelector('.purple-new-button');
 var $entriesTab = document.querySelector('.entries-header');
 var $noEntries = document.querySelector('.no-entries');
+
 // var $targetUl = document.querySelector('ul');
 // var $icon = document.querySelectorAll('i');
 // var $list = document.querySelectorAll('li');
 // var $changeTitle = document.querySelector('.new-entry-title');
+
+if (data.entries.length !== 0) {
+  $noEntries.classList.add('hidden');
+}
 
 $photo.addEventListener('input', showPicture);
 
@@ -31,7 +36,7 @@ function submitForm(event) {
   var formPhoto = document.querySelector('#user-photo').value;
   var formNotes = document.querySelector('#user-notes').value;
   var submitEntry = {
-    entryId: data.nextEntryId,
+    entryID: data.nextEntryId,
     title: formTitle,
     imgURL: formPhoto,
     notes: formNotes
@@ -52,7 +57,7 @@ function submitForm(event) {
 
 function renderEntry(entry) {
   var $entryList = document.createElement('li');
-  $entryList.setAttribute('data-entry-id', entry.entryId);
+  $entryList.setAttribute('data-entry-id', entry.entryID);
 
   var $entryRow = document.createElement('div');
   $entryRow.setAttribute('class', 'row');
@@ -89,9 +94,9 @@ function renderEntry(entry) {
   return $entryList;
 }
 
-window.addEventListener('DomContentLoaded', loadDOMTree);
+window.addEventListener('DOMContentLoaded', loadDomTree);
 
-function loadDOMTree(event) {
+function loadDomTree(event) {
   for (var i = 0; data.entries.length; i++) {
     var $appendEntireEntry = renderEntry(data.entries[i]);
     $entryFull.appendChild($appendEntireEntry);
@@ -125,7 +130,7 @@ function clickNew(event) {
 
 // function editFeature(event) {
 //   data.view = 'entry-form';
-//   clickEntry();
+
 //   var closestLi = event.target.closest('li');
 //   var attributeLi = closestLi.getAttribute('data-entry-id');
 //   var entryIdNumber = parseInt(attributeLi);
