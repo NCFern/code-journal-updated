@@ -9,10 +9,8 @@ var $newButton = document.querySelector('.purple-new-button');
 var $entriesTab = document.querySelector('.entries-header');
 var $noEntries = document.querySelector('.no-entries');
 
-// var $targetUl = document.querySelector('ul');
-// var $icon = document.querySelectorAll('i');
-// var $list = document.querySelectorAll('li');
-// var $changeTitle = document.querySelector('.new-entry-title');
+var $targetUl = document.querySelector('ul');
+var $changeTitle = document.querySelector('.new-entry-title');
 
 if (data.entries.length !== 0) {
   $noEntries.classList.add('hidden');
@@ -32,11 +30,12 @@ $form.addEventListener('submit', submitForm);
 
 function submitForm(event) {
   event.preventDefault();
+  // if (data.editing === null) {
   var formTitle = document.querySelector('#user-title').value;
   var formPhoto = document.querySelector('#user-photo').value;
   var formNotes = document.querySelector('#user-notes').value;
   var submitEntry = {
-    entryID: data.nextEntryId,
+    entryId: data.nextEntryId,
     title: formTitle,
     imgURL: formPhoto,
     notes: formNotes
@@ -57,7 +56,7 @@ function submitForm(event) {
 
 function renderEntry(entry) {
   var $entryList = document.createElement('li');
-  $entryList.setAttribute('data-entry-id', entry.entryID);
+  $entryList.setAttribute('data-entry-id', entry.entryId);
 
   var $entryRow = document.createElement('div');
   $entryRow.setAttribute('class', 'row');
@@ -97,7 +96,7 @@ function renderEntry(entry) {
 window.addEventListener('DOMContentLoaded', loadDomTree);
 
 function loadDomTree(event) {
-  for (var i = 0; data.entries.length; i++) {
+  for (var i = 0; i < data.entries.length; i++) {
     var $appendEntireEntry = renderEntry(data.entries[i]);
     $entryFull.appendChild($appendEntireEntry);
   }
@@ -126,56 +125,30 @@ function clickNew(event) {
   }
 }
 
-// $targetUl.addEventListener('click', editFeature);
+$targetUl.addEventListener('click', editFeature);
 
-// function editFeature(event) {
-//   data.view = 'entry-form';
+function editFeature({ target }) {
+  if (event.target.tagName === 'I') {
+    clickNew('entry-form');
+  } else {
+    return;
+  }
+  var $editIcon = target.closest('li');
+  var currentEdit = $editIcon.getAttribute('data-entry-id');
+  data.editing = currentEdit;
+  for (var i = 0; i < data.entries.length; i++) {
+    if (currentEdit === data.entries[i].entryId.toString()) {
+      data.editing = data.entries[i];
+      break;
+    }
+  }
+  $changeTitle.textContent = 'Edit Entry';
+  prepopulateData();
+}
 
-//   var closestLi = event.target.closest('li');
-//   var attributeLi = closestLi.getAttribute('data-entry-id');
-//   var entryIdNumber = parseInt(attributeLi);
-//   for (var i = 0; i < data.entries.length; i++) {
-//     if (entryIdNumber === data.entries[i].entryId) {
-//       data.editing = data.entries[i];
-//     }
-//   }
-//   $form.title.value = data.editing.title;
-//   $form.notes.value = data.editing.notes;
-// }
-
-// function editFeature({ target }) {
-//   if (event.target.tagName === 'I') {
-//     clickEntry();
-//   } else {
-//     return;
-//   }
-//   var $editIcon = target.closest('li');
-//   var currentEditId = $editIcon.getAttribute('data-entry-id');
-//   data.editing = currentEditId;
-//   for (var i = 0; i < data.entries.length; i++) {
-//     if (currentEditId === data.entries[i].entryId.toString()) {
-//       data.editing = data.entries[i];
-//       break;
-//     }
-//   }
-//   $changeTitle.textContent = 'Edit Entry';
-//   prepopulateData();
-// }
-
-// function prepopulateData(dataForm) {
-//   $form.elements.title.value = data.editing.title;
-//   $form.elements.notes.value = data.editing.notes;
-
-// }
-
-// function editFeature(event) {
-//   for (var i = 0; i < $list.length; i++) {
-//     if ($list[i].getAttribute('data-entry-id') === (data.entries[i].entryId).toString() &&
-//     event.target.getAttribute('data-entry-id') === $icon[i].getAttribute('data-entry-id')) {
-//       data.editing = data.entries[i];
-//       clickNew();
-//       $changeTitle.innerHTML = 'Edit Entry';
-//     }
-//   }
-
-// }
+function prepopulateData() {
+  $form.elements.title.value = data.editing.title;
+  $form.elements.notes.value = data.editing.notes;
+  $form.elements.photo.value = data.editing.imgURL;
+  $showImage.setAttribute('src', data.editing.imgURL);
+}
