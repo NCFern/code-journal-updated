@@ -23,7 +23,7 @@
   <header class="navi-bar">
     <div class="container">
       Code Journal
-      <span class="entries-header">Entries</span>
+      <a class="entries-header" data-view="entries">Entries</a>
     </div>
   </header>
   <main>
@@ -32,7 +32,7 @@
         <form id="new-form">
           <div class="row">
             <div class="column-half">
-              <h1>New Entry</h1>
+              <h1 class="new-entry-title">New Entry</h1>
             </div>
           </div>
           <div class="row">
@@ -62,15 +62,13 @@
         </form>
       </div>
 
-      <!--new content-->
-
       <div data-view="entries" class="view">
         <div class="row space-between">
           <div>
             <h1>Entries</h1>
           </div>
           <div class="new-button-padding">
-            <a href="#" class="purple-new-button" id="anchor">NEW</a>
+            <a href="#" class="purple-new-button" id="anchor" data-view="entry-form">NEW</a>
           </div>
         </div>
         <div class="no-entries">
