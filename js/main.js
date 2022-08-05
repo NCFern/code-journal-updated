@@ -66,9 +66,11 @@ function submitForm(event) {
     for (var j = 0; j < $li.length; j++) {
       var currentEntry = $li[j].getAttribute('data-entry-id');
       if (currentEntry === data.editing.entryId.toString()) {
-        $targetUl.replaceChild(renderEntry(editEntry), $li[j]);
+        $targetUl.replaceWith(editEntry, $li[j]);
       }
     }
+    $form.reset();
+    clickEntry();
   }
 }
 
