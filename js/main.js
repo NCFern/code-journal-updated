@@ -60,28 +60,8 @@ function submitForm(event) {
       }
     }
 
-    // var editEntry = {};
-
-    // editEntry[$form.elements.title.name] = data.editing.title;
-    // editEntry[$form.elements.notes.name] = data.editing.notes;
-    // editEntry[$form.elements.photo.name] = data.editing.imgURL;
-    // editEntry.entryId = data.editing.entryId;
-
-    // for (var i = 0; i < data.entries.length; i++) {
-    //   if (data.editing.entryId === data.entries[i].entryId) {
-    //     data.entries.splice(i, 1, editEntry);
-    //   }
-    // }
-    // for (var j = 0; j < $li.length; j++) {
-    //   var currentEntry = $li[j].getAttribute('data-entry-id');
-    //   if (currentEntry === data.editing.entryId.toString()) {
-    //     $targetUl.replaceWith(renderEntry(data.editing));
-    //   }
-    // }
-    // $showImage.setAttribute('src', 'images/placeholder-image-square.jpg');
     $form.reset();
     data.view = 'entries';
-
     clickEntry();
   }
 }
