@@ -10,7 +10,6 @@ var $entriesTab = document.querySelector('.entries-header');
 var $noEntries = document.querySelector('.no-entries');
 var $targetUl = document.querySelector('ul');
 var $changeTitle = document.querySelector('.new-entry-title');
-var $li = document.querySelectorAll('.journal-entry');
 
 if (data.entries.length !== 0) {
   $noEntries.classList.add('hidden');
@@ -54,13 +53,13 @@ function submitForm(event) {
     data.editing.imgURL = $form.elements.photo.value;
     data.editing.notes = $form.elements.notes.value;
 
+    var $li = document.querySelectorAll('.journal-entry');
     for (var i = 0; i < $li.length; i++) {
       if (data.editing.entryId === parseInt($li[i].getAttribute('data-entry-id'))) {
-        $li[i].replaceWith(loadDomTree(data.editing));
+        $li[i].replaceWith(renderEntry(data.editing));
       }
     }
     $form.reset();
-    loadDomTree();
     clickEntry();
   }
 }
