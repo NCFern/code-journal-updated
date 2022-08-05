@@ -56,12 +56,11 @@ function submitForm(event) {
 
     for (var i = 0; i < $li.length; i++) {
       if (data.editing.entryId === parseInt($li[i].getAttribute('data-entry-id'))) {
-        $li[i].replaceWith(renderEntry(data.editing));
+        $li[i].replaceWith(loadDomTree(data.editing));
       }
     }
-
     $form.reset();
-    data.view = 'entries';
+    loadDomTree();
     clickEntry();
   }
 }
