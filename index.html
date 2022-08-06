@@ -54,13 +54,36 @@
           </div>
           <div class="row">
             <div class="column-full">
-              <div class="form-actions text-right">
+              <div class="text-left">
+                <button class="delete">Delete Entry</button>
+              </div>
+              <div class="text-right">
                 <button type="submit" class="purple-save-button">SAVE</button>
               </div>
             </div>
           </div>
         </form>
       </div>
+
+      <div class="modal-overlay">
+        <div class="modal">
+          <div class="row">
+            <div class="column-full">
+              <h3 class="modal-text">Are you sure you want to delete this entry?</h3>
+            </div>
+            <div class="row">
+              <div class="column-half">
+                <button class="modal-cancel">CANCEL</button>
+              </div>
+              <div class="column-half ">
+                <button class="modal-confirm">CONFIRM</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
       <div data-view="entries" class="view">
         <div class="row space-between">
