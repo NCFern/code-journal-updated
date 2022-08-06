@@ -165,6 +165,10 @@ h2 {
   text-decoration: underline;
 }
 
-.space-evenly {
-  justify-content: space-evenly;
+.align-left {
+  justify-content: left;
+}
+
+.align-right {
+  justify-content: right;
 }
