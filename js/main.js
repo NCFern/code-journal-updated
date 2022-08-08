@@ -11,7 +11,7 @@ var $noEntries = document.querySelector('.no-entries');
 var $targetUl = document.querySelector('ul');
 var $changeTitle = document.querySelector('.new-entry-title');
 var $deleteButton = document.querySelector('.delete');
-var $modalOverlay = document.querySelector('.modal');
+var $modalOverlay = document.querySelector('.modal-overlay');
 // var $cancelButton = document.querySelector('.modal-cancel');
 // var $confirmButton = document.querySelector('.modal-confirm');
 

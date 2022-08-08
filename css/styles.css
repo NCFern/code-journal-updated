@@ -54,6 +54,7 @@ textarea {
   border: unset;
   border-radius: 6px;
   font-size: 15px;
+  margin-left: 690px;
 }
 
 ul {
@@ -124,10 +125,6 @@ h2 {
   text-align: center;
 }
 
-.modal-buttons {
-  justify-content: space-evenly;
-}
-
 .modal-cancel {
   background-color: lightgray;
   color: black;
@@ -139,6 +136,7 @@ h2 {
   border-radius: 6px;
   font-size: 15px;
   text-decoration: none;
+  margin-left: 30px;
 }
 
 .modal-confirm {
@@ -152,6 +150,7 @@ h2 {
   border-radius: 6px;
   font-size: 15px;
   text-decoration: none;
+  margin-left: 160px;
 }
 
 .text-left {
