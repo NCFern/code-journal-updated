@@ -10,6 +10,10 @@ var $entriesTab = document.querySelector('.entries-header');
 var $noEntries = document.querySelector('.no-entries');
 var $targetUl = document.querySelector('ul');
 var $changeTitle = document.querySelector('.new-entry-title');
+var $deleteButton = document.querySelector('.delete');
+var $modalOverlay = document.querySelector('.modal');
+// var $cancelButton = document.querySelector('.modal-cancel');
+// var $confirmButton = document.querySelector('.modal-confirm');
 
 if (data.entries.length !== 0) {
   $noEntries.classList.add('hidden');
@@ -154,6 +158,7 @@ function editFeature({ target }) {
     }
   }
   $changeTitle.textContent = 'Edit Entry';
+  showDelete();
   prepopulateData();
 }
 
@@ -162,4 +167,15 @@ function prepopulateData() {
   $form.elements.notes.value = data.editing.notes;
   $form.elements.photo.value = data.editing.imgURL;
   $showImage.setAttribute('src', data.editing.imgURL);
+}
+
+function showDelete(event) {
+  $deleteButton.className = 'delete';
+}
+
+$deleteButton.addEventListener('click', startDelete);
+
+function startDelete(event) {
+  event.preventDefault();
+  $modalOverlay.classname = 'modal-overlay';
 }
