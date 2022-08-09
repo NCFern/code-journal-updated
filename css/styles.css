@@ -54,6 +54,7 @@ textarea {
   border: unset;
   border-radius: 6px;
   font-size: 15px;
+  margin-left: 690px;
 }
 
 ul {
@@ -96,4 +97,69 @@ h2 {
 
 .no-entries {
   text-align: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.modal {
+  background-color: white;
+  max-width: 400px;
+  max-height: 150px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.modal-text {
+  text-align: center;
+}
+
+.modal-cancel {
+  background-color: lightgray;
+  color: black;
+  font-family:
+    "Open Sans",
+    sans-serif;
+  padding: 10px 15px;
+  border: unset;
+  border-radius: 6px;
+  font-size: 15px;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.modal-confirm {
+  background-color: red;
+  color: white;
+  font-family:
+    "Open Sans",
+    sans-serif;
+  padding: 10px 15px;
+  border: unset;
+  border-radius: 6px;
+  font-size: 15px;
+  text-decoration: none;
+  margin-left: 160px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.delete {
+  background-color: none;
+  color: red;
+  border: none;
+  text-decoration: underline;
 }
