@@ -12,8 +12,8 @@ var $targetUl = document.querySelector('ul');
 var $changeTitle = document.querySelector('.new-entry-title');
 var $deleteButton = document.querySelector('.delete');
 var $modalOverlay = document.querySelector('.modal-overlay');
-// var $cancelButton = document.querySelector('.modal-cancel');
-// var $confirmButton = document.querySelector('.modal-confirm');
+var $cancelButton = document.querySelector('.modal-cancel');
+var $confirmButton = document.querySelector('.modal-confirm');
 
 if (data.entries.length !== 0) {
   $noEntries.classList.add('hidden');
@@ -177,5 +177,27 @@ $deleteButton.addEventListener('click', startDelete);
 
 function startDelete(event) {
   event.preventDefault();
-  $modalOverlay.classname = 'modal-overlay';
+  $modalOverlay.className = 'modal-overlay';
+}
+
+$cancelButton.addEventListener('click', cancelButton);
+
+function cancelButton(event) {
+  $modalOverlay.className = 'modal-overlay hidden';
+}
+
+$confirmButton.addEventListener('click', confirmButton);
+
+function confirmButton(event) {
+  var $li = document.querySelectorAll('.journal-entry');
+  for (var i = 0; i < $li.length; i++) {
+    var currentID = $li[i].getAttribute('data-entry-id');
+    if (currentID === data.editing.entryId.toString()) {
+      data.entries.splice(i, 1);
+      $targetUl.removeChild($li[i]);
+    }
+  }
+  $modalOverlay.className = 'modal-overlay hidden';
+  clickEntry();
+
 }

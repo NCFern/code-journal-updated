@@ -163,11 +163,3 @@ h2 {
   border: none;
   text-decoration: underline;
 }
-
-.align-left {
-  justify-content: left;
-}
-
-.align-right {
-  justify-content: right;
-}
